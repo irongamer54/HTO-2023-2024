@@ -1,6 +1,9 @@
 #cUm_1_test
 import random
 
+PMH_ON = 0
+VER=200
+
 def crc16(data : bytearray, offset , length):
     if data is None or offset < 0 or offset > len(data)- 1 and offset+length > len(data):
         return 0
@@ -34,7 +37,7 @@ for i in range(5):
     pocket+=data+[highcrc,lowcrc,post_ambale]
     print(crc,incrc)
     for i in range(len(pocket)):
-        if random.randint(0, 300)<1:
+        if random.randint(0, VER)<PMH_ON:
             pocket[i]+=1
     print(lowcrc)
     print(highcrc)
