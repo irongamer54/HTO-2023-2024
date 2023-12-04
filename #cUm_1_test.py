@@ -1,9 +1,9 @@
 #cUm_1_test
 import random
 
-PMH_ON = 0
-VER=100
-COUNT=5
+PMH_ON = 0 #количество битых битов
+VER=100 #количество битов
+COUNT=5 #количество пакетов
 
 def crc16(data : bytearray, offset , length):
     if data is None or offset < 0 or offset > len(data)- 1 and offset+length > len(data):
