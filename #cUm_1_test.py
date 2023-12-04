@@ -2,7 +2,8 @@
 import random
 
 PMH_ON = 0
-VER=200
+VER=100
+COUNT=5
 
 def crc16(data : bytearray, offset , length):
     if data is None or offset < 0 or offset > len(data)- 1 and offset+length > len(data):
@@ -18,8 +19,8 @@ def crc16(data : bytearray, offset , length):
     return crc & 0xFFFF
 
 buf=[]
-
-for i in range(5):
+b=0
+for i in range(COUNT):
 
     pre_ambale= 123
     post_ambale= 125
@@ -36,14 +37,18 @@ for i in range(5):
     incrc=((highcrc & 0xff) << 8) | (lowcrc & 0xff)
     pocket+=data+[highcrc,lowcrc,post_ambale]
     print(crc,incrc)
+    flag=0
     for i in range(len(pocket)):
         if random.randint(0, VER)<PMH_ON:
             pocket[i]+=1
+            flag=1
+    b+=flag
     print(lowcrc)
     print(highcrc)
     print(pocket)
     buf+=pocket
 print(buf)
+print(COUNT-b,b)
 f=open('output.txt', 'w') 
 f.write(str(buf))
 
