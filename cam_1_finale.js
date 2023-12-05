@@ -9,8 +9,8 @@ var transmitter;
 var receiver;
 
 ///////TIME///////
-var start_t = []; // прописать
-var stop_t = []; // прописать
+var start_t = [13170,22765,33465,44084]; // прописать
+var stop_t = [14530,24075,35185,46035]; // прописать
 
 ///////CONST///////
 var pre_ambale = 123;
